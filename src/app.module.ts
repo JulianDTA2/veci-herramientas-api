@@ -1,4 +1,4 @@
-// src/app.module.ts
+// src/app.module.ts (ACTUALIZADO)
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -16,27 +16,26 @@ import { UsersModule } from './users/users.module';
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         type: 'mssql',
+        
         host: configService.get<string>('DB_HOST') || 'localhost',
+        port: parseInt(configService.get<string>('DB_PORT') || '1433', 10),
         
-        // --- CAMBIO 1: Comenta o elimina esta línea ---
-        // port: parseInt(configService.get<string>('DB_PORT') || '1433', 10), 
+        // ¡CAMBIO CLAVE! Ahora leemos el usuario y la contraseña del .env
+        username: configService.get<string>('DB_USER'),
+        password: configService.get<string>('DB_PASSWORD'),
         
-        database: configService.get<string>('DB_NAME') || 'veci-herramientes',
+        // Base de datos actualizada
+        database: configService.get<string>('DB_NAME'),
+        
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: true, 
         
-        authentication: { // Para Windows Auth
-          type: 'default',
-          options: {},
-        },
+        // ¡ELIMINADO! Ya no usamos Autenticación de Windows
+        // authentication: { ... },
 
-        // Opciones específicas para SQL Server en desarrollo
         options: {
           encrypt: false,
           trustServerCertificate: true,
-          
-          // --- CAMBIO 2: Añade esta línea ---
-          instanceName: configService.get<string>('DB_INSTANCE_NAME'), 
         },
       }),
     }),

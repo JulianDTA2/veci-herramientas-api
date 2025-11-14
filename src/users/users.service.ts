@@ -7,12 +7,14 @@ import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsersService {
-  // Pedimos a Nest.js que nos inyecte el "Repositorio" de User
   constructor(
     @InjectRepository(User)
     private userRepository: Repository<User>,
   ) {}
 
+  async findOneByEmail(email: string): Promise<User | null> { // <-- Corregido
+    return this.userRepository.findOneBy({ email });
+  }
   // Método para crear un usuario
   async create(createUserDto: CreateUserDto): Promise<any> {
     const { email, password, name } = createUserDto;
