@@ -1,4 +1,3 @@
-// src/loans/entities/loan.entity.ts
 import { Tool } from '../../tools/entities/tool.entity';
 import { User } from '../../users/entities/user.entity';
 import {
@@ -10,7 +9,6 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-// Definimos los posibles estados de un préstamo
 export enum LoanStatus {
   PENDING = 'pending',    
   APPROVED = 'approved',  
@@ -24,19 +22,16 @@ export class Loan {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  // --- Relación con la Herramienta ---
   @ManyToOne(() => Tool, { eager: true }) 
   tool: Tool;
   @Column()
   toolId: string;
 
-  // --- Relación con el Dueño (Owner) ---
   @ManyToOne(() => User, { eager: true })
   owner: User;
   @Column()
   ownerId: string;
 
-  // --- Relación con el Solicitante (Requester) ---
   @ManyToOne(() => User, { eager: true }) 
   requester: User;
   @Column()

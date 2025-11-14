@@ -12,35 +12,28 @@ export class UsersService {
     private userRepository: Repository<User>,
   ) {}
 
-  async findOneByEmail(email: string): Promise<User | null> { // <-- Corregido
+  async findOneByEmail(email: string): Promise<User | null> {
     return this.userRepository.findOneBy({ email });
   }
-  // Método para crear un usuario
   async create(createUserDto: CreateUserDto): Promise<any> {
     const { email, password, name } = createUserDto;
 
-    // 1. Revisa si el email ya existe
     const userExists = await this.userRepository.findOneBy({ email });
     if (userExists) {
       throw new ConflictException('El correo electrónico ya está registrado');
     }
 
-    // 2. Encripta la contraseña
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-    // 3. Crea el objeto de usuario
     const newUser = this.userRepository.create({
       name,
       email,
       password: hashedPassword,
     });
 
-    // 4. Guarda el usuario en la base de datos
     const savedUser = await this.userRepository.save(newUser);
 
-    // 5. No devuelvas la contraseña en la respuesta
-    // Usamos desestructuración para excluir 'password'
     const { password: _, ...result } = savedUser;
 
     return result;

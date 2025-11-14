@@ -1,4 +1,3 @@
-// src/tools/entities/tool.entity.ts
 import { User } from '../../users/entities/user.entity';
 import {
   Entity,
@@ -14,22 +13,20 @@ export class Tool {
   id: string;
 
   @Column({ type: 'varchar', length: 100 })
-  name: string; // ej. "Taladro Percutor"
+  name: string;
 
   @Column({ type: 'text', nullable: true })
-  description: string; // ej. "Poco uso, con set de brocas"
+  description: string;
 
   @Column({ type: 'varchar', length: 50 })
-  category: string; // ej. "Carpintería", "Jardinería"
+  category: string;
 
   @CreateDateColumn()
   createdAt: Date;
 
-  // --- Relación con el Usuario ---
-  // "Muchas herramientas pertenecen a Un usuario"
   @ManyToOne(() => User, (user) => user.tools)
   owner: User;
 
-  @Column() // Guardamos el ID del dueño para facilitar las búsquedas
+  @Column() 
   ownerId: string;
 }

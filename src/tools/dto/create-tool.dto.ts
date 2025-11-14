@@ -1,19 +1,18 @@
-// src/tools/dto/create-tool.dto.ts
 import { IsString, IsNotEmpty, MaxLength, IsOptional } from 'class-validator';
 
 export class CreateToolDto {
   @IsString()
   @IsNotEmpty()
   @MaxLength(100)
-  name: string; // ej. "Taladro Percutor"
+  name: string;
 
   @IsString()
-  @IsOptional() // La descripción es opcional
+  @IsOptional()
   @MaxLength(500)
-  description: string; // ej. "Poco uso, con set de brocas"
+  description: string;
 
   @IsString()
   @IsNotEmpty()
   @MaxLength(50)
-  category: string; // ej. "Carpintería", "Jardinería"
+  category: string;
 }

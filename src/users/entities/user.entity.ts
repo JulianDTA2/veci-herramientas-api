@@ -1,4 +1,3 @@
-// src/users/entities/user.entity.ts
 import { Tool } from '../../tools/entities/tool.entity';
 import {
   Entity,
@@ -9,9 +8,9 @@ import {
   OneToMany,
 } from 'typeorm';
 
-@Entity() // Le dice a TypeORM que esto es una tabla
+@Entity()
 export class User {
-  @PrimaryGeneratedColumn('uuid') // ID automático como UUID (ej: a1b2c3d4-...)
+  @PrimaryGeneratedColumn('uuid')
   id: string;
   @OneToMany(() => Tool, (tool) => tool.owner)
   tools: Tool[];
@@ -19,11 +18,11 @@ export class User {
   @Column({ type: 'varchar', length: 100 })
   name: string;
 
-  @Column({ type: 'varchar', length: 100, unique: true }) // El email no se puede repetir
+  @Column({ type: 'varchar', length: 100, unique: true }) 
   email: string;
 
   @Column({ type: 'varchar' })
-  password: string; // Aquí guardaremos la contraseña encriptada
+  password: string; 
 
   @CreateDateColumn()
   createdAt: Date;

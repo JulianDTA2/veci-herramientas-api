@@ -1,4 +1,3 @@
-// src/app.module.ts (ACTUALIZADO)
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -22,18 +21,13 @@ import { LoansModule } from './loans/loans.module';
         host: configService.get<string>('DB_HOST') || 'localhost',
         port: parseInt(configService.get<string>('DB_PORT') || '1433', 10),
         
-        // ¡CAMBIO CLAVE! Ahora leemos el usuario y la contraseña del .env
         username: configService.get<string>('DB_USER'),
         password: configService.get<string>('DB_PASSWORD'),
         
-        // Base de datos actualizada
         database: configService.get<string>('DB_NAME'),
         
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: true, 
-        
-        // ¡ELIMINADO! Ya no usamos Autenticación de Windows
-        // authentication: { ... },
 
         options: {
           encrypt: false,

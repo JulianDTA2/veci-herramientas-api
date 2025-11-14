@@ -1,4 +1,3 @@
-// src/loans/loans.controller.ts
 import { Controller, Post, Body, UseGuards, Request, Get } from '@nestjs/common';
 import { LoansService } from './loans.service';
 import { CreateLoanDto } from './dto/create-loan.dto';

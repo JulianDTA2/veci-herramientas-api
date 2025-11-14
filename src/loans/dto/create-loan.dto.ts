@@ -1,4 +1,3 @@
-// src/loans/dto/create-loan.dto.ts
 import { IsNotEmpty, IsString, IsUUID, IsDateString } from 'class-validator';
 
 export class CreateLoanDto {
