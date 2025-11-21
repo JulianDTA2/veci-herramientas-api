@@ -1,0 +1,51 @@
+De acuerdo a lo hablado en clase, este es el git correcto: https://github.com/JulianDTA2/ProyectoWeb.git y esta es la idea del proyecto: Nombre del Proyecto: Veci-Herramientas
+El Problema a Solucionar
+Muchas personas compran herramientas o artículos que usan muy pocas veces al año (un taladro, una escalera, una máquina de coser, una carpa para acampar, etc.). Estos objetos ocupan espacio, representan un gasto significativo y su producción masiva tiene un impacto ambiental. Por otro lado, cuando alguien necesita uno de estos artículos para una tarea puntual, a menudo no conoce a ningún vecino que pueda prestárselo, por lo que termina comprándolo también.
+ 
+La Solución Web
+Crear una plataforma web hiperlocal y de confianza donde los miembros de una misma comunidad (un barrio, un conjunto residencial o un edificio) puedan registrar las herramientas y objetos que están dispuestos a prestar.
+ 
+Funcionalidades Clave:
+ 
+Registro y Perfil de Usuario: Los usuarios se registran y verifican su dirección para confirmar que pertenecen a la comunidad. Pueden añadir una foto y una breve biografía para generar confianza.
+ 
+Catálogo de Objetos: Cada usuario puede subir fotos y descripciones de los artículos que ofrece en préstamo. Los objetos se categorizan (ej. "Jardinería", "Carpintería", "Cocina", "Camping").
+ 
+Sistema de Búsqueda y Filtros: Un vecino que necesita, por ejemplo, una hidrolavadora, puede buscarla en la plataforma. Los filtros permitirían buscar por categoría, disponibilidad de fechas, etc.
+ 
+Gestión de Préstamos:
+ 
+Solicitud: El interesado envía una solicitud de préstamo especificando las fechas.
+ 
+Calendario de Disponibilidad: El dueño del objeto puede ver y gestionar las solicitudes en un calendario para evitar conflictos.
+ 
+Comunicación Segura: Un chat interno para que los usuarios coordinen la entrega y devolución del objeto sin necesidad de compartir su número de teléfono personal.
+ 
+Sistema de Reputación y Reseñas: Después de cada préstamo, ambas partes (dueño y solicitante) se califican mutuamente y dejan una breve reseña. Esto construye un círculo de confianza y fomenta el buen uso de los objetos.
+ 
+Notificaciones: El sistema enviaría recordatorios automáticos por correo electrónico o notificaciones push sobre fechas de devolución pendientes, nuevas solicitudes o mensajes recibidos.
+ 
+Tecnologías que se Pueden Utilizar 
+Frontend: Puedes usar un framework moderno como React, Vue o Svelte para crear una interfaz de usuario dinámica y atractiva.
+ 
+Backend: Node.js con Express es una excelente opción por su rapidez y su ecosistema. También podrías usar Python con Django o Flask.
+ 
+Base de Datos: Una base de datos NoSQL como MongoDB sería muy flexible para manejar los perfiles de usuario y los catálogos de objetos. Una opción relacional como PostgreSQL también es muy robusta y fiable.
+ 
+Autenticación: Implementar un sistema de autenticación seguro, por ejemplo, usando JWT (JSON Web Tokens) o integrando proveedores como Google o Facebook para facilitar el registro.
+ 
+Geolocalización (Opcional pero recomendado): Usar la API de Google Maps para verificar la ubicación de los usuarios y mostrar en un mapa los objetos disponibles cerca.
+ 
+¿Por Qué es un Buen Proyecto? 
+Resuelve un Problema Real: Fomenta el ahorro, reduce el consumismo y optimiza el uso de recursos.
+ 
+Impacto Social y Ambiental: Conecta a las comunidades, fortalece los lazos vecinales y promueve la sostenibilidad.
+ 
+Escalable: Puede empezar en un solo barrio y luego expandirse a otras zonas o ciudades.
+ 
+Técnicamente Desafiante: Involucra la gestión de perfiles, catálogos, un sistema de reservas, mensajería en tiempo real y un sistema de reputación, lo que te permitirá demostrar un amplio rango de habilidades como ingeniero web.
+
+Una vez especificado esto se presentaron las primeras retro alimentaciones y se acordo ir mejorando las versiones hasta la siguiente entrega.
+
+
+
